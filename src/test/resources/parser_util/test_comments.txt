@@ -1,0 +1,7 @@
+Hello world!
+#This is a comment
+How are you?
+#This is also comment
+#This is another comment
+This is not a comment!
+#I am comment tooooooo.
