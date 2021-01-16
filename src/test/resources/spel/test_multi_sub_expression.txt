@@ -1,0 +1,3 @@
+Hello ${name}, how are you?
+%%context::address%%    You are from ${street}, ${city}, %%context::state%%${stateName}%%context_end::state%%
+%%context_end::address%%

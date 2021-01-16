@@ -1,0 +1,4 @@
+Hello ${name}, how are you?
+%%context::nicknames%%
+    Your nickname is ${nickname}
+%%context_end::nicknames%%
