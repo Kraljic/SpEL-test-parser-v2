@@ -1,4 +1,2 @@
 Test asd
-%%context::subContext%%
-Hello world!
-%%context_end::subContext%%
+%%context::subContext%%Hello world!%%context_end::subContext%%

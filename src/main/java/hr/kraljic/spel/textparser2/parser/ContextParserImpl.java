@@ -6,7 +6,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 class ContextParserImpl implements ContextParser {
-    private static final String CONTEXT_REGEX = "%%context(?<index>[0-9]*?)?::(?<contextObj>.+?)%%\\n(?<spelExp>.*?)\\n%%context\\k<index>_end::\\k<contextObj>%%";
+    private static final String CONTEXT_REGEX = "%%context(?<index>[0-9]*?)?::(?<contextObj>.+?)%%(?<spelExp>.*?)%%context\\k<index>_end::\\k<contextObj>%%";
     private static final Pattern CONTEXT_PATTERN = Pattern.compile(CONTEXT_REGEX, Pattern.MULTILINE | Pattern.DOTALL);
 
     @Override
