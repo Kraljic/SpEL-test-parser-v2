@@ -1,5 +1,7 @@
 package hr.kraljic.spel.textparser2.parser;
 
+import java.util.Map;
+
 interface ContextExpressionParser {
-    String parse(String expression);
+    Map<String, String> parse(String expression);
 }

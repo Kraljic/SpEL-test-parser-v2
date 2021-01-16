@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 
 class ParserUtil {
     private static final String COMMENT_REGEX = "^{{comment_prefix}}.*?$(\\r?\\n)?";
-    private static final String NEW_LINE_REGEX = "^\\s*$\\r?\\n";
+    private static final String NEW_LINE_REGEX = "^\\s*(\\r?\\n)";
 
     public static String filterCommentLines(String text, SpelConfig spelConfig) {
         String commentPrefix = spelConfig.getCommentPrefix();
