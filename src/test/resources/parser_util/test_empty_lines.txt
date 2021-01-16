@@ -4,7 +4,7 @@ How are you?
 
 This is not empty line!
 
-After this should not be empty line.
+After this should be one line.
 
 
 

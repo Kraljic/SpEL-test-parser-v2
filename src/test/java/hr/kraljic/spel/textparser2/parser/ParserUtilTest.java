@@ -17,7 +17,7 @@ class ParserUtilTest {
     private static final String EMPTY_LINES_OUT = "Hello world!\n" +
             "How are you?\n" +
             "This is not empty line!\n" +
-            "After this should not be empty line.";
+            "After this should be one line.\n";
 
     @Test
     void filterCommentLines() throws IOException {
