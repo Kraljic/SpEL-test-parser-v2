@@ -15,6 +15,7 @@ class ContextParserImpl implements ContextParser {
 
         List<ContextData> subContextList = parseSubContext(text);
         contextContainers.setSubContexts(subContextList);
+        contextContainers.setSpelExp(text);
 
         return contextContainers;
     }
