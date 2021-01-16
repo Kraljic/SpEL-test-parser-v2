@@ -1,5 +1,5 @@
 package hr.kraljic.spel.textparser2.parser;
 
-interface SpelExpressionParser {
+interface ContextExpressionParser {
     String parse(String expression);
 }

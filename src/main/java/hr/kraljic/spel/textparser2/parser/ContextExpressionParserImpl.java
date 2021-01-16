@@ -3,7 +3,7 @@ package hr.kraljic.spel.textparser2.parser;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-class SpelExpressionParserImpl implements SpelExpressionParser {
+class ContextExpressionParserImpl implements ContextExpressionParser {
     private static final String SPEL_REGEX = "\\$\\{(?<expression>.+?)}";
     private static final Pattern SPEL_PATTERN = Pattern.compile(SPEL_REGEX, Pattern.MULTILINE);
 
