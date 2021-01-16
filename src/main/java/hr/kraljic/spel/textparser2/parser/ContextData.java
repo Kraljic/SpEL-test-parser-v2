@@ -3,7 +3,6 @@ package hr.kraljic.spel.textparser2.parser;
 import lombok.Data;
 
 import java.util.List;
-import java.util.Map;
 
 @Data
 class ContextData {

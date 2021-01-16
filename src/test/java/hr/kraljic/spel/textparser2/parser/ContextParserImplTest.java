@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ContextParserImplTest {
     private static final String ROOT_CONTEXT_TEST_FILE = "/context/test_root_context.txt";
@@ -33,7 +33,7 @@ class ContextParserImplTest {
         ContextData data = contextParser.parse(file);
         System.out.println(data);
 
-        assertEquals(SUB_CONTEXT_OUT, data.getSubContexts().get(0));
+        assertEquals(SUB_CONTEXT_OUT, data.getSubContexts().get(0).getSpelExp());
     }
 
     @Test
@@ -48,9 +48,8 @@ class ContextParserImplTest {
     @Test
     void parse_recursiveSubContext() throws IOException {
         String file = ResourceReader.readFile(RECURSIVE_SUB_CONTEXT_TEST_FILE);
-        ContextData data = contextParser.parse(file);
 
-        ContextData innerContext = data;
+        ContextData innerContext = contextParser.parse(file);
         for (int i = 0; i < RECURSIVE_SUB_CONTEXT_NESTED_COUNT; i++) {
             // this should not throw exception, cuz sub context should exist
             innerContext = innerContext.getSubContexts().get(0);
