@@ -1,7 +1,8 @@
 package hr.kraljic.spel.textparser2.parser;
 
-import hr.kraljic.spel.textparser2.parser.config.ExceptionHandler;
+import hr.kraljic.spel.textparser2.parser.config.CustomPropertyAccessor;
 import hr.kraljic.spel.textparser2.parser.config.SpelConfig;
+import hr.kraljic.spel.textparser2.parser.config.TypeResolver;
 import hr.kraljic.spel.textparser2.resource.ResourceReader;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.expression.EvaluationException;
@@ -25,8 +26,17 @@ public class SpelParserImpl implements SpelParser {
     private ContextExpressionParser contextExpressionParser = new ContextExpressionParserImpl();
 
 
+    @SuppressWarnings({"rawtypes", "unchecked"})
     public SpelParserImpl(SpelConfig spelConfig) {
         this.spelConfig = spelConfig;
+        for (Map.Entry<Class<?>, TypeResolver<?>> typeResolverEntry :
+                spelConfig.getTypeResolvers().entrySet()) {
+            Class clazz = typeResolverEntry.getKey();
+            TypeResolver typeResolver = typeResolverEntry.getValue();
+
+            CustomPropertyAccessor cpa = new CustomPropertyAccessor(clazz, typeResolver);
+            this.evaluationContext.addPropertyAccessor(cpa);
+        }
     }
 
     @Override
@@ -125,7 +135,7 @@ public class SpelParserImpl implements SpelParser {
 
             if (value != null) {
                 return value;
-            } else  {
+            } else {
                 return spelConfig.getNullHandler().getDefaultValue();
             }
         } catch (EvaluationException ex) {

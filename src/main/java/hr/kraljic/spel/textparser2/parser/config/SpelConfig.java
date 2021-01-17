@@ -1,9 +1,8 @@
 package hr.kraljic.spel.textparser2.parser.config;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
+
+import java.util.Map;
 
 @Builder
 @NoArgsConstructor
@@ -14,6 +13,9 @@ public class SpelConfig {
     private String commentPrefix;
     private NullHandler nullHandler;
     private ExceptionHandler exceptionHandler;
+
+    @Singular
+    private Map<Class<?>, TypeResolver<?>> typeResolvers;
 
     public NullHandler getNullHandler() {
         if (nullHandler == null) {
