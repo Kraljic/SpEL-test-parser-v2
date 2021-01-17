@@ -77,7 +77,7 @@ Mark has 2 dogs.
 ```
 
 ##TODO
-TODO:
+
 - [ ] Add iterator index to array context
 - [ ] Add support for custom method definition inside SpEL
 - [ ] Write JavaDoc
